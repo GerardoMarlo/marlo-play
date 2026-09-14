@@ -9,11 +9,13 @@ export function targetFor(url){
 export async function handle(request,fetchOrigin=fetch){
  const url=new URL(request.url);
  if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405,headers:{Allow:'GET, HEAD'}});
- const target=targetFor(url);
+ if(url.protocol==='http:'){url.protocol='https:';return Response.redirect(url.href,308);}
+ if(url.hostname==='play.marlo.games'&&url.pathname==='/')return Response.redirect('https://marlo.games/'+url.search,308);
+ const target=url.hostname==='play.marlo.games'?targetFor(url):null;
  if(!target){
-  const home=url.pathname==='/';
+  const home=url.hostname==='marlo.games'&&url.pathname==='/';
   if(url.pathname==='/robots.txt')return new Response('User-agent: *\nAllow: /\n');
-  return new Response(request.method==='HEAD'?null:home?HTML:'<!doctype html><html lang="en"><title>Not found · MARLO</title><body><h1>Nothing here yet.</h1><a href="/">Back to MARLO</a></body></html>',{status:home?200:404,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'public, max-age=60','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin'}});
+  return new Response(request.method==='HEAD'?null:home?HTML:'<!doctype html><html lang="en"><title>Not found · MARLO</title><body><h1>Nothing here yet.</h1><a href="https://marlo.games/">Back to MARLO</a></body></html>',{status:home?200:404,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'public, max-age=60','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin'}});
  }
  try{
   // No cookies or authorization are forwarded between independent projects.

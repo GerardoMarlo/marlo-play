@@ -7,6 +7,10 @@
     {
       "pattern": "play.marlo.games",
       "custom_domain": true
+    },
+    {
+      "pattern": "marlo.games",
+      "custom_domain": true
     }
   ],
   "observability": {

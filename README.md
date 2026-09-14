@@ -1,6 +1,6 @@
 # MARLO Play
 
-Independent static portal and routing Worker for https://play.marlo.games.
+Independent static portal at https://marlo.games and game routing Worker at https://play.marlo.games. The play root permanently redirects to the MARLO homepage; game URLs remain unchanged.
 
 ## Build and test
 
@@ -17,18 +17,18 @@ To add a game:
 4. Make the game emit relative bundle URLs and use `<base href="/">` plus document.baseURI for runtime artwork. The gateway rewrites this base to `/<slug>/`. Apps with client routers must separately configure their route basename.
 5. Deploy this portal, then test the exact slug, trailing slash, nested refresh, asset requests and unknown paths. Later game updates deploy only that Pages project.
 
-Add non-game entries to the `not-games` section and a corresponding origin mapping when applicable. No component changes are needed. Each entry has slug, title, description, status and optional tag.
+Add non-game entries to the `not-games` section and a corresponding origin mapping when applicable. No component changes are needed. Each entry has slug, title, description, status and optional tag or public url. By default entries link to https://play.marlo.games/<slug>; use url for non-game projects hosted elsewhere.
 
 ## Cloudflare configuration
 
-Worker: marlo-play. Custom Domain: play.marlo.games (Cloudflare-managed DNS/certificate).
+Worker: marlo-play. Custom Domains: marlo.games and play.marlo.games (Cloudflare-managed DNS/certificate).
 Pigeon origin: pigeongod-origin.marlo.games, proxied CNAME to games-of-the-pigeon-god.pages.dev and registered on that Pages project.
 No Origin Rules or Transform Rules are used: Free-plan Host/DNS overrides are unavailable; the Worker handles prefix stripping and redirects.
-No root-domain or email DNS records are changed.
+The apex Custom Domain serves the portal. Cloudflare manages its DNS and certificate; preserve unrelated email records.
 
 The router preserves query strings, strips only a registered leading slug, limits requests to GET/HEAD for current static apps, streams origin bodies, and rewrites same-origin Location headers. Unknown slugs and missing assets return 404. Fetch failures return 502. Cookies/auth are not forwarded: future authenticated apps need an explicit reviewed extension.
 
-Canonical URLs point to play.marlo.games. Origin hostnames are not secret or access-protected. Do not globally redirect an origin to the gateway (that creates a proxy loop). Games share a browser origin: namespace localStorage/IndexedDB keys and scope service workers to their mount.
+The portal canonical URL is https://marlo.games/. Game canonical URLs remain under play.marlo.games. Origin hostnames are not secret or access-protected. Do not globally redirect an origin to the gateway (that creates a proxy loop). Games share a browser origin: namespace localStorage/IndexedDB keys and scope service workers to their mount.
 
 Worker invocations include proxied game assets; monitor Workers request limits. Portal HTML is small and cacheable; no database, paid plan upgrade or persistent server is required.
 
