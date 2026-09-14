@@ -1,0 +1,13 @@
+{
+  "name": "marlo-play",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node build.mjs && node --test src/*.check.mjs",
+    "deploy": "npm run build && npx wrangler deploy"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}
