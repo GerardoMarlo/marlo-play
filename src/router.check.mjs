@@ -15,3 +15,9 @@ test('play root redirects to MARLO; apex does not proxy game paths',async()=>{
  assert.equal((await handle(new Request('https://marlo.games/pigeongod'))).status,404);
  const r=await handle(new Request('http://marlo.games/'));assert.equal(r.headers.get('Location'),'https://marlo.games/');
 });
+
+test('API routing preserves credentials and bypasses the static GET-only proxy',async()=>{
+ const req=new Request('https://play.marlo.games/api/v1/pigeongod/profile',{method:'DELETE',headers:{Cookie:'pigeon_profile=test',Origin:'https://play.marlo.games'}});
+ const r=await handle(req,()=>{throw Error('must not reach Pages')},{PIGEONGOD_API:{fetch:async request=>{assert.equal(request.method,'DELETE');assert.equal(request.headers.get('Cookie'),'pigeon_profile=test');return new Response('ok',{headers:{'Cache-Control':'no-store'}});}}});
+ assert.equal(r.status,200);assert.equal(r.headers.get('Cache-Control'),'no-store');
+});

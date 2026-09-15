@@ -6,8 +6,13 @@ export function targetFor(url){
  const path=url.pathname.slice(slug.length+1)||'/';
  return {slug,url:new URL(origin+path+url.search)};
 }
-export async function handle(request,fetchOrigin=fetch){
+export async function handle(request,fetchOrigin=fetch,env={}){
  const url=new URL(request.url);
+ if(url.hostname==='play.marlo.games'&&url.pathname.startsWith('/api/v1/pigeongod/')){
+  if(url.protocol!=='https:')return new Response('HTTPS required',{status:400});
+  if(!env.PIGEONGOD_API)return new Response('Telemetry unavailable',{status:503});
+  return env.PIGEONGOD_API.fetch(request);
+ }
  if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405,headers:{Allow:'GET, HEAD'}});
  if(url.protocol==='http:'){url.protocol='https:';return Response.redirect(url.href,308);}
  if(url.hostname==='play.marlo.games'&&url.pathname==='/')return Response.redirect('https://marlo.games/'+url.search,308);
@@ -32,4 +37,4 @@ export async function handle(request,fetchOrigin=fetch){
   return response;
  }catch{return new Response('This game is temporarily unavailable. Please try again shortly.',{status:502,headers:{'Cache-Control':'no-store'}});}
 }
-export default {fetch:request=>handle(request)};
+export default {fetch:(request,env)=>handle(request,fetch,env)};

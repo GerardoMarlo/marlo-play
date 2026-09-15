@@ -15,5 +15,11 @@
   ],
   "observability": {
     "enabled": true
-  }
+  },
+  "services": [
+    {
+      "binding": "PIGEONGOD_API",
+      "service": "pigeongod-api"
+    }
+  ]
 }
