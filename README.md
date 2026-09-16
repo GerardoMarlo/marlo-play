@@ -37,3 +37,11 @@ Worker invocations include proxied game assets; monitor Workers request limits. 
 Deploy this repository independently with `node build.mjs` and `npx wrangler deploy`. The wrangler.jsonc file owns the Worker name, entry point and Custom Domain. Cloudflare Git builds should watch `*`, not dist (which is generated). Keep API tokens in Cloudflare/GitHub secrets, never in this repository.
 
 Rollback by redeploying a prior portal commit or selecting a previous Worker deployment. Game releases/rollback remain in the independent Pages project.
+
+## Homepage design and artwork
+
+The homepage uses pumpkin orange, mustard, cream and warm brown design tokens in `src/portal.css`. Its workshop hero, project cards and both accordion sections share the same responsive design. Native buttons support keyboard navigation; reduced-motion settings disable animation.
+
+Edit `src/catalog.mjs` to add projects. Optional fields include `image`, `imageAlt`, `details`, `cta`, and `url`. The brand logo and English Pigeon God cover live in `assets/`; original PNGs are retained alongside optimized WebP delivery files. The build bundles the two WebP files into the existing Worker and copies them into `dist/assets/` for static previews. No extra service or storage binding is required. Add new local artwork to the build's explicit asset list.
+
+The cover was supplied by the owner and its title translated into English with image generation. Its printed player/age/duration icons belong to the supplied physical-game artwork, not browser-mode specifications. Game code and rules are maintained separately.

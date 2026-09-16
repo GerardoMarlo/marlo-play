@@ -21,3 +21,11 @@ test('API routing preserves credentials and bypasses the static GET-only proxy',
  const r=await handle(req,()=>{throw Error('must not reach Pages')},{PIGEONGOD_API:{fetch:async request=>{assert.equal(request.method,'DELETE');assert.equal(request.headers.get('Cookie'),'pigeon_profile=test');return new Response('ok',{headers:{'Cache-Control':'no-store'}});}}});
  assert.equal(r.status,200);assert.equal(r.headers.get('Cache-Control'),'no-store');
 });
+
+test('portal artwork is self-contained and served only on the apex',async()=>{
+ const req=new Request('https://marlo.games/assets/pigeongod-cover-en.webp');
+ const res=await handle(req);assert.equal(res.status,200);assert.equal(res.headers.get('Content-Type'),'image/webp');assert.ok((await res.arrayBuffer()).byteLength>1000);
+ const head=await handle(new Request(req,{method:'HEAD'}));assert.equal((await head.text()).length,0);
+ assert.equal((await handle(new Request('https://play.marlo.games/assets/pigeongod-cover-en.webp'))).status,404);
+ assert.equal((await handle(new Request('https://marlo.games/assets/missing.webp'))).status,404);
+});

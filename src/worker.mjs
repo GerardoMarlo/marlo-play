@@ -1,5 +1,5 @@
 import { origins } from './catalog.mjs';
-import { HTML } from './generated.mjs';
+import { HTML, ASSETS } from './generated.mjs';
 export function targetFor(url){
  const slug=url.pathname.split('/')[1],origin=origins[slug];
  if(!Object.hasOwn(origins,slug))return null;
@@ -16,6 +16,7 @@ export async function handle(request,fetchOrigin=fetch,env={}){
  if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405,headers:{Allow:'GET, HEAD'}});
  if(url.protocol==='http:'){url.protocol='https:';return Response.redirect(url.href,308);}
  if(url.hostname==='play.marlo.games'&&url.pathname==='/')return Response.redirect('https://marlo.games/'+url.search,308);
+ if(url.hostname==='marlo.games'&&Object.hasOwn(ASSETS,url.pathname))return new Response(request.method==='HEAD'?null:Uint8Array.from(atob(ASSETS[url.pathname]),c=>c.charCodeAt(0)),{headers:{'Content-Type':'image/webp','Cache-Control':'public, max-age=3600','X-Content-Type-Options':'nosniff'}});
  const target=url.hostname==='play.marlo.games'?targetFor(url):null;
  if(!target){
   const home=url.hostname==='marlo.games'&&url.pathname==='/';
@@ -38,3 +39,4 @@ export async function handle(request,fetchOrigin=fetch,env={}){
  }catch{return new Response('This game is temporarily unavailable. Please try again shortly.',{status:502,headers:{'Cache-Control':'no-store'}});}
 }
 export default {fetch:(request,env)=>handle(request,fetch,env)};
+
