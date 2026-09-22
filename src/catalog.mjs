@@ -15,6 +15,7 @@ export const sections = [
         details: 'Play in your browser · AI or local players',
         image: '/assets/pigeongod-cover-en.webp',
         imageAlt: 'The Games of the Pigeon God: a Rat champion raises a cheese trophy beneath the arena Cat',
+        artLabel:'PLAYABLE PROTOTYPE',
         cta: 'Enter the arena'
       }
     ]
@@ -34,8 +35,9 @@ export const sections = [
         status: 'available',
         tag: 'PRINT TOOL',
         details: 'Cards · Hexes · Tokens · Custom paper sizes',
-        image: '/assets/prepress-cover.webp',
+        image: '/assets/prepress-tool.png',
         imageAlt: 'Marlo Pre-Press Tool for preparing board game components for printing',
+        artLabel:'Print tool',
         cta: 'Open the tool'
       }
     ]
