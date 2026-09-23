@@ -35,7 +35,7 @@ export const sections = [
         status: 'available',
         tag: 'PRINT TOOL',
         details: 'Cards · Hexes · Tokens · Custom paper sizes',
-        image: '/assets/prepress-tool.png',
+        image: '/assets/prepress-tool.webp',
         imageAlt: 'Marlo Pre-Press Tool for preparing board game components for printing',
         artLabel:'Print tool',
         cta: 'Open the tool'
