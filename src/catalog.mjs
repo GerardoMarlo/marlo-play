@@ -9,7 +9,7 @@ export const sections = [
       {
         slug: 'pigeongod',
         title: 'The Games of the Pigeon God',
-        description: 'Rats in an arena. A pigeon with unreasonable expectations. A tactical board game of combat, clever moves, and very questionable alliances.',
+        description: 'Rats in an arena. A pigeon with unreasonable expectations. A tactical board game where every fight can turn on a single roll.',
         status: 'available',
         tag: 'TACTICAL BOARD GAME',
         details: 'Play in your browser · AI or local players',
