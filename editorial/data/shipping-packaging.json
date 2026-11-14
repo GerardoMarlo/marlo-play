@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "allowProvisionalQuotes": true,
+  "foamGramsPerGame": 10,
+  "foamCostCentsPerGame": null,
+  "foamThicknessCm": 0.1,
+  "tapeGramsPerParcel": 10,
+  "tapeCostCentsPerParcel": null,
+  "additionalGramsPerParcel": 0,
+  "additionalCostCentsPerParcel": null,
+  "materialWeightsVerified": false,
+  "bags": [
+    {
+      "id": "small",
+      "flatLength": 25,
+      "flatWidth": 17,
+      "weightGrams": 15,
+      "costCents": null,
+      "closureCm": 2,
+      "plans": [
+        {
+          "units": 1,
+          "packed": {
+            "length": 12,
+            "width": 9,
+            "height": 5
+          },
+          "verified": false
+        },
+        {
+          "units": 2,
+          "packed": {
+            "length": 12,
+            "width": 8.5,
+            "height": 8.5
+          },
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "large",
+      "flatLength": 55,
+      "flatWidth": 35,
+      "weightGrams": 35,
+      "costCents": null,
+      "closureCm": 2,
+      "plans": [
+        {
+          "units": 3,
+          "packed": {
+            "length": 12,
+            "width": 9,
+            "height": 13
+          },
+          "verified": false
+        },
+        {
+          "units": 4,
+          "packed": {
+            "length": 17,
+            "width": 12,
+            "height": 9
+          },
+          "verified": false
+        },
+        {
+          "units": 5,
+          "packed": {
+            "length": 26,
+            "width": 12,
+            "height": 9
+          },
+          "verified": false
+        }
+      ]
+    }
+  ],
+  "boxes": []
+}

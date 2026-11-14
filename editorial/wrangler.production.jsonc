@@ -1,0 +1,55 @@
+{
+  "name": "marlo-editorial",
+  "main": "api/site.ts",
+  "compatibility_date": "2026-09-14",
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true
+  },
+  "vars": {
+    "MODE": "production",
+    "PUBLIC_ORIGIN": "https://marlo.games",
+    "PAYMENTS_ENABLED": "false",
+    "EMAIL_ENABLED": "true",
+    "LABELS_ENABLED": "false",
+    "LOCAL_PICKUP_ENABLED": "true",
+    "ADMIN_EMAIL": "marlo.games.contact.mx@gmail.com",
+    "MP_ENABLED": "false",
+    "PAYPAL_ENABLED": "false",
+    "PAYPAL_ENVIRONMENT": "live",
+    "SKYDROPX_ENVIRONMENT": "production",
+    "SHIPPING_CONSIGNMENT_NOTE": "60141103",
+    "SHIPPING_PACKAGE_TYPE": "5H4"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "marlo-editorial",
+      "database_id": "e8535ed2-0c6a-4edb-8492-2fd97e001b4e",
+      "migrations_dir": "migrations/schema"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "marlo.games",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.marlo.games",
+      "custom_domain": true
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "*/5 * * * *"
+    ]
+  }
+}
+

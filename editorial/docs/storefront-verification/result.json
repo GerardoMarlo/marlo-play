@@ -1,0 +1,175 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/juegos",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/juegos/intercambio-navideno",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/nosotros",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/faq",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/contacto",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/mayoreo",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/envios",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/carrito",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/checkout",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/rastrear-pedido",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/juegos",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/juegos/intercambio-navideno",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/nosotros",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/faq",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/contacto",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/mayoreo",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/envios",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/carrito",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/checkout",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/rastrear-pedido",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/juegos",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/juegos/intercambio-navideno",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/nosotros",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/faq",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/contacto",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/mayoreo",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/envios",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/carrito",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/checkout",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/rastrear-pedido",
+      "width": 390,
+      "overflow": false
+    }
+  ],
+  "snowPause": true,
+  "reducedMotion": true,
+  "gallery": true,
+  "cart": true,
+  "errors": [],
+  "source": "Local build, historical catalog fixture. No live transactions."
+}

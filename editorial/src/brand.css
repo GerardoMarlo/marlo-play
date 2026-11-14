@@ -1,0 +1,28 @@
+.site-header .brand,
+.site-footer .brand {
+  display: block;
+  flex: 0 0 auto;
+  width: 172px;
+  padding: 0;
+  line-height: 1;
+}
+.site-header .brand img,
+.site-footer .brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+@media (max-width: 600px) {
+  .site-header .brand { width: 142px; }
+}
+.publisher-mark {
+  display: grid;
+  place-items: center;
+  width: min(100%, 280px);
+  justify-self: center;
+}
+.publisher-mark img { display: block; width: 100%; height: auto; }
+@media (max-width: 700px) {
+  .publisher-mark { width: 190px; justify-self: start; }
+}

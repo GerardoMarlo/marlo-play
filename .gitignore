@@ -4,3 +4,4 @@ node_modules/
 *.local
 src/generated.mjs
 *.local.*
+.tmp-logo-tools/

@@ -1,0 +1,29 @@
+[
+  {
+    "carrier": "fedex",
+    "service": "fedex_express_saver",
+    "homeDelivery": true,
+    "businessDays": true,
+    "source": "Skydropx authenticated quotation a10db436-3fce-476e-ae77-849b23fb373f, 2026-10-20: Domicilio; dias habiles; Con recoleccion; Incluye IVA y cargos extra. Recheck account terms after expiry.",
+    "validUntil": 1793059200000,
+    "pickup": {"extraCents": 0, "source": "Same account quotation: pickup available and displayed total includes IVA y cargos extra; dynamic API total remains authoritative."}
+  },
+  {
+    "carrier": "fedex",
+    "service": "standard_overnight",
+    "homeDelivery": true,
+    "businessDays": true,
+    "source": "Skydropx authenticated quotation a10db436-3fce-476e-ae77-849b23fb373f, 2026-10-20: Domicilio; dias habiles; Con recoleccion; Incluye IVA y cargos extra.",
+    "validUntil": 1793059200000,
+    "pickup": {"extraCents": 0, "source": "Same account quotation includes IVA y cargos extra with pickup. Dynamic prices; no fixed promotional price stored."}
+  },
+  {
+    "carrier": "dhl",
+    "service": "express",
+    "homeDelivery": true,
+    "businessDays": true,
+    "source": "Skydropx authenticated quotation a10db436-3fce-476e-ae77-849b23fb373f, 2026-10-20: Domicilio; dias habiles; Con recoleccion; Incluye IVA y cargos extra.",
+    "validUntil": 1793059200000,
+    "pickup": {"extraCents": 0, "source": "Same account quotation includes IVA y cargos extra with pickup. Dynamic API total remains authoritative."}
+  }
+]

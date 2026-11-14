@@ -1,0 +1,36 @@
+{
+  "name": "marlo-editorial",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "dev:api": "wrangler dev --local --port 8788",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "db:local": "wrangler d1 migrations apply marlo-editorial-local --local",
+    "db:postal:local": "wrangler d1 execute marlo-editorial-local --local --file .wrangler/postal-catalog.local.sql",
+    "seed:local": "wrangler d1 execute marlo-editorial-local --local --file migrations/seed.local.sql"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/fraunces": "^5.3.0",
+    "jose": "^6.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261016.1",
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.0",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.137.0"
+  }
+}

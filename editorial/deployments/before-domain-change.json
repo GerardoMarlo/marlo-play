@@ -1,0 +1,239 @@
+{
+  "date": "2026-10-17T05:54:19.944Z",
+  "domains": [
+    {
+      "id": "85c3ced82a11e9fe6383e574de0cbae990af4083",
+      "zone_id": "1f21824f7adf7563d80d000f25a01c74",
+      "zone_name": "marlo.games",
+      "hostname": "play.marlo.games",
+      "service": "marlo-play",
+      "environment": "production",
+      "cert_id": "8ab3ce1d-1a8f-4fda-b2f2-698625d9f39b",
+      "previews_enabled": false,
+      "enabled": true
+    },
+    {
+      "id": "9af1a520c2347ab5197911ac01656d111583d2af",
+      "zone_id": "1f21824f7adf7563d80d000f25a01c74",
+      "zone_name": "marlo.games",
+      "hostname": "marlo.games",
+      "service": "marlo-play",
+      "environment": "production",
+      "cert_id": "54bae062-1ff8-45db-8d89-5a0e0682d2db",
+      "previews_enabled": false,
+      "enabled": true
+    },
+    {
+      "id": "71e0c499fcad3eb74fa0f6698914e0771b7fef0c",
+      "zone_id": "1f21824f7adf7563d80d000f25a01c74",
+      "zone_name": "marlo.games",
+      "hostname": "prepress-origin.marlo.games",
+      "service": "boardgame-prepress",
+      "environment": "production",
+      "cert_id": "1697b047-755f-4b62-914a-a71cbc6efc18",
+      "previews_enabled": false,
+      "enabled": true
+    },
+    {
+      "id": "35d43301143a8f7502855e7b9a51c4c752f8dd84",
+      "zone_id": "1f21824f7adf7563d80d000f25a01c74",
+      "zone_name": "marlo.games",
+      "hostname": "my.marlo.games",
+      "service": "marlo-personal",
+      "environment": "production",
+      "cert_id": "423dd237-1672-4e7e-986b-426eb9f4e29d",
+      "previews_enabled": false,
+      "enabled": true
+    }
+  ],
+  "deployments": {
+    "deployments": [
+      {
+        "id": "aadb741d-eac2-4801-b99d-263d78e5c052",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "eab85ed3-132f-43b9-aa5b-17b077233873",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-23T15:26:38.382623Z"
+      },
+      {
+        "id": "98227024-a0fc-4a62-b979-750640744612",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "226b65eb-a7d5-4e4c-8e84-b7c5dd743829",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-23T15:22:13.687445Z"
+      },
+      {
+        "id": "0ad6954f-3a26-489c-9344-61a7f8f140d8",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "51fe32a3-51f8-4f4a-9e24-f65142e83c3b",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-23T15:21:52.304899Z"
+      },
+      {
+        "id": "8b8b1f89-70e5-4f35-8dcc-aba5b0c6732a",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "3c15debe-9160-459d-845b-98f757dc29ca",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-23T15:21:17.184232Z"
+      },
+      {
+        "id": "dd33636e-4578-4891-b0b0-d6081a3c99c3",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "43de9b3d-e503-48ac-b063-bdd2de874b69",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-23T03:46:52.445785Z"
+      },
+      {
+        "id": "363e494d-6b8b-499a-9923-a7f72f6edc69",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "ea91fb17-9b3b-4c0c-b2cc-1c962bb435c0",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-22T21:52:59.655523Z"
+      },
+      {
+        "id": "a9fe9f43-aa1d-46fc-99ba-4ababd79448b",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "b04a190f-a4ce-4ec6-8c76-2a4b38ef3519",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-22T21:46:29.226922Z"
+      },
+      {
+        "id": "46f8e424-fe71-4809-b69c-c6a225571810",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "75b5ec48-b84b-43f9-a809-33f751e1f1f9",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-22T21:32:13.393233Z"
+      },
+      {
+        "id": "b2b1cd3b-54e9-4406-a30d-aa89e60033e6",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "c69f4a38-9e25-4b6a-a7a2-f64164fb8b5b",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-22T21:03:42.507262Z"
+      },
+      {
+        "id": "c2cb6288-bd54-45f1-b8be-f4e36726a39e",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "marlo.games.contact.mx@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "d925ccc2-1f82-4a73-a49a-1a40a8d04ea5",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-22T18:42:21.929041Z"
+      }
+    ]
+  },
+  "sites": [
+    {
+      "url": "https://my.marlo.games/",
+      "status": 200,
+      "location": null,
+      "hash": "a8f850341a223af2a444b6afca5951616423421fe701d1fc4b5f9bdddfc50f0f"
+    },
+    {
+      "url": "https://play.marlo.games/",
+      "status": 308,
+      "location": "https://marlo.games/",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://play.marlo.games/pigeongod",
+      "status": 200,
+      "location": null,
+      "hash": "ca81cba9d9c8d5986b5c112d62a30aac337ed3282c34f0f579e9b71dc0701fe4"
+    },
+    {
+      "url": "https://play.marlo.games/prepress",
+      "status": 200,
+      "location": null,
+      "hash": "db74198bf75e1aae7bad9f96814c059c7939b7c197733591d71e1b1eee3fb878"
+    }
+  ]
+}

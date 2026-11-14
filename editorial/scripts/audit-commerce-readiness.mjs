@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+const read = name => Object.fromEntries(fs.readFileSync(new URL('../.dev.vars.' + name, import.meta.url), 'utf8').split(/\r?\n/).filter(l => l.includes('=')).map(l => { const i=l.indexOf('='); return [l.slice(0,i),JSON.parse(l.slice(i+1))]; }));
+const e=read('production');
+const results={checkedAt:new Date().toISOString(),chargesCreated:false,labelsPurchased:false};
+const request=(url,init={})=>fetch(url,{...init,signal:AbortSignal.timeout(20000)});
+const auth=await request('https://api-pro.skydropx.com/api/v1/oauth/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({grant_type:'client_credentials',client_id:e.SKYDROPX_CLIENT_ID,client_secret:e.SKYDROPX_CLIENT_SECRET})});
+results.skydropx={authenticationHTTP:auth.status};
+const origin=JSON.parse(e.SHIPPING_ORIGIN_JSON||'{}');
+results.shippingOrigin={missing:['country_code','postal_code','area_level1','area_level2','area_level3','street1','name','phone','email'].filter(k=>!origin[k])};
+results.shippingServices=JSON.parse(e.SHIPPING_SERVICES_JSON||'[]').map(s=>({carrier:s.carrier,service:s.service,expires:new Date(s.validUntil).toISOString(),valid:s.validUntil>Date.now(),homeDelivery:s.homeDelivery,businessDays:s.businessDays,pickupVerified:!!s.pickup}));
+const resend=await request('https://api.resend.com/domains',{headers:{Authorization:'Bearer '+e.RESEND_API_KEY}});
+const domains=await resend.json();
+results.email={domainsHTTP:resend.status,domains:domains.data?.map(d=>({name:d.name,status:d.status})),senderConfigured:!!e.EMAIL_FROM};
+const suppression=await request('https://api.resend.com/suppressions/pedidos%40marlo.games',{headers:{Authorization:'Bearer '+e.RESEND_API_KEY}});
+results.email.testInboxSuppressionHTTP=suppression.status;
+fs.writeFileSync(new URL('../.wrangler/readiness-2026-10-22.json',import.meta.url),JSON.stringify(results,null,2));
+console.log(JSON.stringify(results,null,2));

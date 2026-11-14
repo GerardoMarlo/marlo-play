@@ -1,0 +1,225 @@
+@media (min-width: 1001px) {
+  .site-header nav a,
+  .cart-is-open .site-header nav a {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .site-header nav {
+    gap: clamp(12px, 1.6vw, 25px);
+  }
+}
+.site-header nav a {
+  text-underline-offset: 5px;
+  transition: color 200ms;
+}
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+.fan-card {
+  transition:
+    translate 280ms ease,
+    scale 280ms ease,
+    rotate 280ms ease,
+    box-shadow 280ms ease;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card-fan .fan-card:hover {
+    translate: 0 -8px;
+    scale: 1.04;
+    rotate: -1deg;
+    z-index: 4;
+    box-shadow:
+      3px 12px 0 #493b2733,
+      0 22px 28px #493b2744;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fan-card {
+    transition: none;
+  }
+}
+.cart-drawer .button,
+.cart-drawer .secondary,
+.cart-drawer input,
+.drawer-quantity,
+.drawer-item,
+.drawer-summary details {
+  border-radius: 6px;
+}
+.drawer-item > div {
+  min-width: 0;
+}
+.drawer-item a {
+  font-size: 16px;
+  line-height: 1.4;
+}
+.drawer-item p {
+  font-size: 14px;
+}
+.drawer-summary details {
+  padding-block: 16px;
+  margin-bottom: 12px;
+}
+.drawer-summary .drawer-total {
+  font-size: 19px;
+  gap: 12px;
+}
+.checkout-layout .form-grid[hidden] {
+  display: none;
+}
+.checkout-fields {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+.checkout-layout .check,
+.legal-copy {
+  font-size: 13px;
+  line-height: 1.65;
+  align-items: start;
+}
+.checkout-layout .check input {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.checkout-layout .check a {
+  display: inline;
+}
+.checkout-layout input,
+.checkout-layout select,
+#provider-payment {
+  min-width: 0;
+  max-width: 100%;
+}
+.payment-security {
+  background: #e5efdf;
+  border: 1px solid #326c3b;
+  border-radius: 6px;
+  padding: 16px;
+  margin-block: 20px;
+}
+.payment-security strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #23582e;
+}
+.payment-security p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.payment-security-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+.payment-provider-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #0a0080;
+  font-weight: 600;
+}
+.payment-provider-logo img {
+  flex: 0 0 40px;
+}
+.card-brands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-block: 16px;
+}
+.card-brands span {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 44px;
+  border: 1px solid #574d3e;
+  border-radius: 5px;
+  background: white;
+}
+.card-brands img {
+  width: 56px;
+  height: 28px;
+  object-fit: contain;
+}
+.legal-document h2 {
+  font-size: 23px;
+  margin-top: 30px;
+}
+.legal-document p {
+  line-height: 1.8;
+}
+.legal-draft {
+  padding: 18px;
+  background: var(--yellow);
+  border: 1px solid currentColor;
+  border-radius: 6px;
+}
+@media (max-width: 620px) {
+  .drawer-summary .drawer-total {
+    font-size: 17px;
+  }
+  .delivery-option {
+    min-width: 0;
+  }
+  .delivery-option span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+.cart-drawer h2 span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 50%;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.cart-drawer .drawer-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  line-height: 1;
+}
+@media (max-width: 700px) {
+  .site-header nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    overflow: visible;
+    gap: 2px 10px;
+  }
+  .site-header nav a {
+    font-size: 12px;
+    line-height: 1.4;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .site-header nav {
+    gap: 12px;
+  }
+  .site-header nav a {
+    white-space: nowrap;
+  }
+}

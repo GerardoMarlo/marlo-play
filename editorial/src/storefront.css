@@ -1,0 +1,217 @@
+/* Selective rollback: original styles remain in playful.css and redesign.css. */
+.snowfall {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+  container-type: size;
+}
+.snowfall > span {
+  position: absolute;
+  top: -12px;
+  left: var(--snow-x);
+  width: var(--snow-size);
+  height: var(--snow-size);
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0;
+  animation: snow-fall var(--snow-time) var(--snow-delay) linear infinite;
+}
+.snowfall[data-paused="true"] > span {
+  animation-play-state: paused;
+}
+@keyframes snow-fall {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(var(--snow-drift), calc(100cqh + 24px), 0);
+    opacity: 0;
+  }
+}
+.storefront .snow-toggle {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 3;
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 12px;
+  background: var(--color-ink);
+  color: var(--color-cream);
+  border: 0;
+  box-shadow: none;
+}
+
+.gallery-stage {
+  overflow: hidden;
+  isolation: isolate;
+}
+.game-story.with-snow {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.game-story.with-snow > .snowfall {
+  z-index: -1;
+  opacity: 0.5;
+}
+.launch-hero.festive-hero {
+  background: var(--festive-red);
+  color: #fff5df;
+}
+.festive-hero > .snowfall {
+  z-index: -1;
+  opacity: 0.5;
+}
+.festive-hero .hero-sticker {
+  color: var(--color-ink);
+}
+.festive-hero .launch-copy h1,
+.festive-hero .launch-copy > p,
+.festive-hero .launch-price span,
+.festive-hero .hero-actions .text-link,
+.festive-hero .card-composition figcaption {
+  color: #fff5df;
+}
+.storefront .festive-hero > .snow-toggle {
+  top: auto;
+  bottom: 12px;
+  min-height: 32px;
+  padding: 4px 8px;
+}
+.game-story.with-snow > .snow-toggle {
+  top: auto;
+  bottom: 8px;
+  right: 12px;
+  min-height: 32px;
+  padding: 4px 8px;
+}
+@media (max-width: 700px) {
+  /* Keep the restored purchase controls from covering the description. */
+  .storefront .purchase-controls {
+    position: static;
+  }
+  .snowfall > span:nth-child(n + 17) {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .snowfall,
+  .storefront .snow-toggle {
+    display: none;
+  }
+  .snowfall > span {
+    animation: none;
+  }
+}
+/* Header's former opaque cream becomes the page canvas. */
+body.storefront {
+  --color-cream: #fff8ea;
+  --store-header: #f5ebd6;
+  background: var(--color-cream);
+}
+.storefront .site-header {
+  background: var(--store-header);
+}
+.catalog-editorial .section-top p {
+  max-width: 58ch;
+}
+@font-face {
+  font-family: "Bodoni Moda";
+  font-style: italic;
+  font-weight: 600;
+  font-display: optional;
+  src: url("/fonts/bodoni-moda-600-italic.ttf") format("truetype");
+}
+.le-gronch {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.1em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.site-footer .external-arrow {
+  display: inline-block;
+  vertical-align: -0.1em;
+  margin-left: 0.2em;
+}
+.about-grid .about-identity {
+  container-type: inline-size;
+  padding: clamp(22px, 4vw, 42px);
+  gap: clamp(20px, 4vw, 36px);
+}
+.about-grid .about-identity strong {
+  font-size: clamp(34px, 13cqi, 76px);
+  letter-spacing: -0.045em;
+}
+.about-grid p + p,
+.about-contact {
+  margin-top: 12px;
+}
+.about-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+/* User-approved exception: clean publisher and delivery section. */
+.storefront .publisher-story {
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  padding: 48px 0;
+}
+.storefront .publisher-story h2 em {
+  color: var(--color-ink);
+}
+.storefront .delivery-notes {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.storefront .delivery-notes > div {
+  display: grid;
+  grid-template-columns: 180px 1fr 1.3fr;
+  gap: 24px;
+  align-items: baseline;
+  border: 0 !important;
+  border-top: 1px solid var(--line) !important;
+  border-radius: 0;
+  padding: 24px 0 !important;
+  background: none;
+}
+.storefront .delivery-notes p {
+  font-size: 14px;
+  margin: 0;
+}
+.storefront .delivery-notes h3 {
+  margin: 0;
+}
+@media (max-width: 1000px) {
+  .storefront .delivery-notes > div {
+    grid-template-columns: 1fr 2fr;
+  }
+  .storefront .delivery-notes p {
+    grid-column: 2;
+  }
+}
+@media (max-width: 700px) {
+  .storefront .publisher-story {
+    padding: 32px 0;
+  }
+  .storefront .delivery-notes > div {
+    display: block;
+  }
+  .storefront .delivery-notes h3 {
+    margin: 8px 0;
+  }
+}

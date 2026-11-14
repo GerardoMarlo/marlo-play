@@ -1,0 +1,18 @@
+{
+  "booking": [
+    390,
+    1440
+  ],
+  "emails": [
+    390,
+    1200
+  ],
+  "admin": [
+    390,
+    1440
+  ],
+  "fiveMinuteBooking": true,
+  "overflow": false,
+  "browserErrors": [],
+  "api": "controlled fixtures; no live calendar or mail"
+}

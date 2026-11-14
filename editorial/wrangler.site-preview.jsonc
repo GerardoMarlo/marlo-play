@@ -1,0 +1,9 @@
+{
+  "name":"marlo-editorial-site-local",
+  "main":"api/site.ts",
+  "compatibility_date":"2026-09-14",
+  "workers_dev":false,
+  "assets":{"directory":"dist","binding":"ASSETS","not_found_handling":"single-page-application","run_worker_first":true},
+  "vars":{"MODE":"local","PUBLIC_ORIGIN":"http://127.0.0.1:8790","PAYMENTS_ENABLED":"false","EMAIL_ENABLED":"false","LABELS_ENABLED":"false"},
+  "d1_databases":[{"binding":"DB","database_name":"marlo-editorial-local","database_id":"00000000-0000-0000-0000-000000000000","migrations_dir":"migrations/schema"}]
+}

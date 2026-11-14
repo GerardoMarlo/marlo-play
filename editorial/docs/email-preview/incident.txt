@@ -1,0 +1,27 @@
+Equipo de Marlo Games:
+
+Revisa el estado verificado del proveedor y atiende el pedido desde el administrador.
+
+Pedido: MG-2026-000001
+
+1 × Intercambio Navideño — $259.00 MXN
+
+Total: $259.00 MXN
+
+Entrega local gratuita — Plaza La Perla, Zapopan, Jalisco
+
+Tienda: Tienda de ejemplo
+
+Nombre: Ana
+
+Correo: ejemplo@example.com
+
+Teléfono: +523300000000
+
+Mensaje: Quisiera conocer más sobre sus juegos. ¡Gracias!
+
+Abrir administrador: https://marlo.games/admin
+
+Marlo Games · Operaciones
+
+Ayuda: https://marlo.games/contacto

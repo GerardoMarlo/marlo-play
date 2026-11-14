@@ -1,0 +1,80 @@
+.pickup-panel {
+  padding: 24px;
+  border: 1px solid #d9cbb6;
+  border-radius: 16px;
+  background: #fffaf2;
+  margin: 20px 0;
+  overflow-wrap: anywhere;
+}
+.pickup-panel label {
+  display: block;
+  margin: 12px 0;
+}
+.pickup-panel input:not([type="checkbox"]),
+.pickup-panel select {
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #b8a58d;
+  border-radius: 6px;
+}
+.pickup-panel button {
+  margin: 6px 8px 6px 0;
+}
+.pickup-slots,
+.pickup-week {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+.pickup-slots button {
+  background: #efce5c;
+  color: #28251f;
+}
+.pickup-confirmation {
+  border-left: 4px solid #bd512b;
+  padding: 16px;
+  background: #f8f1e5;
+  margin: 16px 0;
+}
+.pickup-settings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+.pickup-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.pickup-panel fieldset {
+  margin: 16px 0;
+  padding: 12px;
+  border: 1px solid #d9cbb6;
+}
+.pickup-panel summary {
+  cursor: pointer;
+  padding: 12px 0;
+  font-weight: bold;
+}
+.pickup-panel [role="alert"] {
+  color: #8d281c;
+}
+.pickup-panel button:disabled {
+  opacity: 0.6;
+}
+.pickup-panel input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.pickup-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+}
+.pickup-slots button {
+  margin: 0;
+  width: 100%;
+}
+
+.pickup-slots button { white-space: nowrap; padding: 12px 8px; font-size: 14px; }

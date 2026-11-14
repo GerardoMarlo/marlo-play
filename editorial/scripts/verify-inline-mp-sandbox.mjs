@@ -1,0 +1,34 @@
+import {chromium} from 'file:///C:/Users/viva_/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const origin='http://127.0.0.1:5180';
+const catalog=await (await fetch(origin+'/api/catalog')).json();
+assert.equal(catalog.mode,'sandbox');assert(catalog.providers.mercadopago);
+const browser=await chromium.launch({channel:'msedge',headless:true});
+try {
+ const page=await browser.newPage({viewport:{width:1280,height:1000}});
+ await page.addInitScript(id=>localStorage.setItem('marlo-shop-cart',JSON.stringify({items:[{id,quantity:1}],time:Date.now()})),catalog.products.find(p=>p.stock>0).id);
+ await page.goto(origin+'/checkout');
+ for(const [name,value] of Object.entries({name:'PRUEBA SANDBOX',email:'test@testuser.com',phone:'3312345678'}))await page.locator(`input[name="${name}"]`).fill(value);
+ for(const name of ['localConsent','terms','privacy'])await page.locator(`input[name="${name}"]`).check();
+ await page.locator('.inline-payment iframe').first().waitFor({timeout:45000});
+ await page.waitForTimeout(2500);
+ await page.frame({name:'cardNumber'}).locator('#cardNumber').fill('5474925432670366');
+ await page.frame({name:'expirationDate'}).locator('#expirationDate').fill('1130');
+ await page.frame({name:'securityCode'}).locator('#securityCode').fill('123');
+ await page.locator('input[name="HOLDER_NAME"]').fill('APRO');
+ await page.locator('.inline-payment select').waitFor();
+ await page.locator('.inline-payment select').selectOption({index:1});
+ const paymentResponse=page.waitForResponse(r=>/\/api\/orders\/[^/]+\/payment$/.test(r.url()),{timeout:45000});
+ await page.getByRole('button',{name:'Finalizar compra',exact:true}).click();
+ const response=await paymentResponse, payment=await response.json();
+ assert(response.ok(),payment.error);
+ await page.waitForURL('**/pedido/confirmacion',{timeout:30000});
+ await page.getByRole('heading',{name:'¡Tu pedido está confirmado!',exact:true}).waitFor();
+ const session=await (await page.request.get(origin+'/api/order-session')).json();
+ assert.equal(session.payment,'paid');
+ const result={environment:'sandbox',realBrowserTokenization:true,confirmation:true,payment:session.payment,orderNumber:session.orderNumber,providerId:payment.providerId,realMoney:false};
+ fs.writeFileSync(new URL('../.wrangler/inline-mp-sandbox-2026-10-22.json',import.meta.url),JSON.stringify(result,null,2));
+ await page.screenshot({path:'docs/ux-verification/sandbox-inline-paid-2026-10-22.png',fullPage:true});
+ console.log(JSON.stringify(result));
+}finally{await browser.close();}

@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+const origin='http://127.0.0.1:5180';
+const catalog=await (await fetch(origin+'/api/catalog')).json();
+if(catalog.mode!=='sandbox'||!catalog.providers.mercadopago)throw Error('Sandbox is not ready');
+const request={items:[{id:'intercambio-navideno',quantity:1}],name:'PRUEBA SANDBOX',email:'test@testuser.com',phone:'3312345678',delivery:'local',localConsent:true,terms:true,privacy:true,marketingConsent:false,provider:'mercadopago',idempotencyKey:crypto.randomUUID()};
+const response=await fetch(origin+'/api/orders',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json'},body:JSON.stringify(request)});
+const order=await response.json();
+if(response.status!==201)throw Error('Sandbox order: '+JSON.stringify(order));
+const headers={Cookie:response.headers.get('set-cookie').split(';')[0]};
+const methods=await fetch(origin+'/api/orders/'+order.id+'/card-methods',{headers});
+if(!methods.ok)throw Error('Sandbox card methods unavailable');
+fs.writeFileSync(new URL('../.wrangler/manual-sandbox-order.local.json',import.meta.url),JSON.stringify({orderNumber:order.orderNumber,url:origin+'/consultar-pedido'}));
+console.log(JSON.stringify({sandbox:true,orderCreated:true,cardMethodsAvailable:true,paymentSubmitted:false}));

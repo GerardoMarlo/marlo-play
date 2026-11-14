@@ -1,0 +1,160 @@
+.tracking-page {
+  max-width: 960px;
+  margin: 60px auto 90px;
+}
+.tracking-page > header {
+  max-width: 740px;
+  margin-bottom: 32px;
+}
+.tracking-page h1 {
+  font: 800 clamp(38px, 6vw, 68px)/1.05 var(--serif);
+  letter-spacing: -2px;
+  margin: 16px 0;
+}
+.tracking-page p {
+  line-height: 1.7;
+}
+.tracking-form {
+  padding: 28px;
+  background: #edcb58;
+  border: 1.5px solid #30291e;
+  border-radius: 12px;
+}
+.tracking-form label {
+  font-weight: 600;
+}
+.tracking-input-row {
+  display: flex;
+  gap: 12px;
+  margin: 10px 0;
+}
+.tracking-input-row input {
+  min-width: 0;
+  flex: 1;
+  background: #fff8ea;
+}
+.tracking-input-row button {
+  flex-shrink: 0;
+}
+.tracking-form small {
+  display: block;
+  margin-bottom: 16px;
+}
+.tracking-result {
+  margin-top: 32px;
+  padding: 32px;
+  border: 1.5px solid #30291e;
+  border-radius: 12px;
+  background: #fff8ea;
+}
+.tracking-result h2 {
+  font: 600 clamp(28px, 4vw, 42px)/1.15 var(--serif);
+  margin-top: 8px;
+}
+.tracking-result dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.tracking-result dt {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tracking-result dd {
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+.tracking-milestones {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 24px 0;
+  gap: 14px;
+}
+.tracking-milestones li {
+  border-top: 3px solid #d2c7b6;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+.tracking-milestones li > span {
+  font-size: 24px;
+}
+.tracking-milestones .current {
+  border-color: #c74d23;
+  color: #a33817;
+}
+.tracking-milestones .complete {
+  border-color: #797443;
+}
+.tracking-milestones small,
+.tracking-caption {
+  font-size: 12px;
+}
+.tracking-notice {
+  padding: 16px;
+  background: #f9e9c6;
+  border-left: 3px solid #ba6a26;
+}
+.tracking-history {
+  padding-left: 22px;
+}
+.tracking-history li {
+  padding: 10px 0 18px 10px;
+  border-bottom: 1px solid #d2c7b6;
+}
+.tracking-history span {
+  display: block;
+  font-size: 14px;
+  margin-top: 6px;
+}
+.tracking-help {
+  padding: 24px 0;
+  border-top: 1px solid #bfb5a2;
+  margin-top: 36px;
+}
+.tracking-help h2 {
+  font: 600 26px var(--serif);
+}
+.faq-list details p {
+  white-space: pre-line;
+}
+@media (max-width: 640px) {
+  .tracking-page {
+    margin: 36px auto 50px;
+  }
+  .tracking-form,
+  .tracking-result {
+    padding: 20px;
+  }
+  .tracking-input-row {
+    flex-direction: column;
+  }
+  .tracking-milestones {
+    grid-template-columns: 1fr;
+    padding: 12px 0;
+  }
+  .tracking-milestones li {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    border-top: 0;
+    border-left: 3px solid #d2c7b6;
+    padding: 4px 0 8px 12px;
+    gap: 4px 10px;
+  }
+  .tracking-milestones li > span {
+    grid-row: span 2;
+  }
+  .tracking-milestones small {
+    grid-column: 2;
+  }
+  .tracking-result dl {
+    display: block;
+  }
+  .tracking-result dl > div {
+    margin: 20px 0;
+  }
+}

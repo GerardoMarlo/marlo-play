@@ -1,0 +1,8 @@
+{
+  "name":"marlo-editorial-api-preview",
+  "main":"api/worker.ts",
+  "compatibility_date":"2026-09-14",
+  "workers_dev":false,
+  "vars":{"MODE":"local","PUBLIC_ORIGIN":"http://127.0.0.1:5173","PAYMENTS_ENABLED":"false","EMAIL_ENABLED":"false","LABELS_ENABLED":"false"},
+  "d1_databases":[{"binding":"DB","database_name":"marlo-editorial-local","database_id":"00000000-0000-0000-0000-000000000000","migrations_dir":"migrations/schema"}]
+}
