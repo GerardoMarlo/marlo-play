@@ -2,6 +2,8 @@
 
 Independent personal portal at https://my.marlo.games and game routing Worker at https://play.marlo.games. Editorial and store at https://marlo.games are maintained independently in editorial/. See MIGRATION.md for the verified domain migration and rollback. The play root permanently redirects to the MARLO homepage; game URLs remain unchanged.
 
+Para cambiar los textos de la tienda, consulta [Actualización de textos editoriales](editorial/README.md#actualización-de-textos-editoriales).
+
 ## Build and test
 
 Use Node 24. Run `npm run build` and `npm test`. No runtime packages are needed. The build emits a static `dist/index.html` and a self-contained `dist/worker.mjs`. HTML/CSS is compiled once, not rendered from game state. `npm run deploy` deploys the Worker via Wrangler after authentication.

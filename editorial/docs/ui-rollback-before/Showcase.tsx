@@ -54,7 +54,7 @@ export function CardComposition({
       )}
       <figcaption>
         {isLaunch(product)
-          ? "Ilustraciones del juego · No es una fotografía del empaque"
+          ? "Arte ilustrativo · Diseño sujeto a cambios"
           : "Una mirada al juego"}
       </figcaption>
     </figure>
@@ -102,12 +102,12 @@ export function GameStory() {
       <div className="story-intro">
         <span className="eyebrow">DENTRO DE LA PARTIDA</span>
         <h2 id="story-title">
-          Un regalo cambia <br />
-          de manos.
+          La Navidad  <br />
+          une a las personas.
           <br />
-          <em>Todo cambia.</em>
+          <em>Este juego pone eso a prueba.</em>
         </h2>
-        <p>Intercambiar es fácil. Saber qué quiere cada persona, no tanto.</p>
+        <p>Intercambia regalos, descubre qué quieren los demás y ten cuidado: alguien podría estar arruinando la Navidad.</p>
       </div>
       <div className="story-steps">
         <article>
@@ -115,7 +115,7 @@ export function GameStory() {
           <div>
             <h3>Intercambia regalos.</h3>
             <p>
-              Decide qué conservar y qué dejar pasar. Cada participante persigue
+              Decide qué conservar y qué intercambiar. Cada participante persigue
               un objetivo secreto.
             </p>
           </div>
@@ -135,7 +135,7 @@ export function GameStory() {
           <div>
             <h3>Cuidado con el Grinch.</h3>
             <p>
-              Mientras unos buscan regalos o espíritu navideño, alguien podría
+              Mientras unos buscan su regalo favorito, alguien podría
               tener otros planes.
             </p>
           </div>
@@ -204,7 +204,7 @@ export function EditorialHome({
             </div>
             <p className="launch-footnote">
               {isLaunch(featured)
-                ? "Un juego de cartas familiar de Marlo Games."
+                ? "Regalar es bonito. Quedarte con lo mejor, también."
                 : featured.category}
             </p>
           </div>
@@ -221,9 +221,9 @@ export function EditorialHome({
         </section>
       )}
       <div className="brand-line">
-        <span>Juegos de mesa.</span>
-        <span>Hechos para compartir.</span>
-        <a href="/nosotros">Conoce la editorial ↗</a>
+        <span>Hacemos juegos.</span>
+        <span>Tú haces las historias.</span>
+        <a href="/nosotros">Conócenos ↗</a>
       </div>
       {featured && isLaunch(featured) && <GameStory />}
       <section className="catalog-editorial">
@@ -496,7 +496,7 @@ export function ProductPage({
       <section className="game-about">
         <span className="eyebrow">SOBRE EL JUEGO</span>
         <div>
-          <h2>{launch ? "No todos quieren el mismo regalo." : p.title}</h2>
+          <h2>{launch ? "Encuentra tus regalos favoritos." : p.title}</h2>
           <p>{p.description}</p>
           {launch && (
             <div className="mechanics">

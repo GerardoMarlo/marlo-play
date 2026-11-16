@@ -7,6 +7,10 @@
     "dev:api": "wrangler dev --local --port 8788",
     "build": "tsc --noEmit && vite build",
     "test": "vitest run",
+    "content:diff": "node scripts/content-sync.mjs diff local",
+    "content:sync": "node scripts/content-sync.mjs sync local",
+    "content:diff:prod": "node scripts/content-sync.mjs diff production",
+    "content:sync:prod": "node scripts/content-sync.mjs sync production",
     "db:local": "wrangler d1 migrations apply marlo-editorial-local --local",
     "db:postal:local": "wrangler d1 execute marlo-editorial-local --local --file .wrangler/postal-catalog.local.sql",
     "seed:local": "wrangler d1 execute marlo-editorial-local --local --file migrations/seed.local.sql"

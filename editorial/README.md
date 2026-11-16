@@ -38,6 +38,46 @@ El seed por sí solo contiene el CP de ejemplo 45050. Si falta
 Con el catálogo importado, el CP 45066 también permite seleccionar colonias;
 la cobertura y los pagos del modo local siguen siendo simulaciones.
 
+## Actualización de textos editoriales
+
+1. Edita los campos `intro`, `about`, `headline` o `heroText` de `defaultContent`
+   en [`src/content.ts`](src/content.ts).
+2. Desde `editorial/`, con Node 24, las dependencias instaladas (`npm ci`) y
+   Wrangler autenticado en la cuenta de Cloudflare de Marlo (`npx wrangler login`), ejecuta
+   `npm run content:diff:prod`. Revisa el valor anterior y el nuevo de cada campo
+   que aparece en la vista previa. «Ausente en D1» indica que el Worker toma el
+   valor incluido en su despliegue hasta que se guarde el campo en D1.
+3. Ejecuta `npm run content:sync:prod` en una terminal interactiva. Revisa la
+   nueva vista previa y escribe exactamente `SYNC PRODUCTION` para confirmar.
+   El comando vuelve a consultar D1 y muestra los campos verificados.
+4. Recarga [marlo.games](https://marlo.games/) y comprueba los textos publicados.
+
+Para ensayar con una base local, usa `npm run content:diff` y luego
+`npm run content:sync`. La frase de confirmación local es `SYNC LOCAL`.
+Ambos entornos requieren el registro `site` existente. Si falta en una base
+local recién preparada, guarda el contenido desde **Contenido** en `/admin`
+para inicializarlo.
+
+El comando actualiza exclusivamente los cuatro campos indicados, en el JSON
+del registro `content` con `id = 'site'`. Si alguien modifica ese registro
+durante la confirmación, vuelve a ejecutar el comando y revisa la nueva vista
+previa. Los cuatro campos de `defaultContent` son la referencia para la
+sincronización. Si editas alguno desde el panel, refleja también el cambio en
+TypeScript para conservarlo en la próxima sincronización.
+En Windows, si el registro y los textos superan el límite de tamaño de la
+consulta, ejecuta la sincronización desde Linux o macOS.
+
+Si solo cambias esos campos de D1 y no hay otros cambios de código que publicar,
+puedes omitir la migración, `npm run build` y el despliegue. La sincronización
+es independiente del build y del deploy.
+
+- `catalogHeading` y `localExplanation` se incluyen en el frontend. Para
+  publicarlos, ejecuta `npm run build` y
+  `npx wrangler deploy --config wrangler.production.jsonc`.
+- Revisa y edita `shipping`, `faq`, `privacy`, `terms`, `returns` y
+  `announcement` desde **Contenido** en `/admin`. Pueden incluir tarifas,
+  condiciones de compra y avisos vigentes.
+
 ## Demo de cotización Guadalajara → CDMX
 
 Desde la carpeta `editorial`, en la terminal de VS Code:

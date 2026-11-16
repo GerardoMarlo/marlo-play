@@ -288,7 +288,7 @@ function App() {
       <>
         {heading(
           "NUESTRO CATÁLOGO",
-          "Juegos para compartir.",
+          "Juegos para compartir y crear historias.",
           "Cada juego tiene su propia forma de reunirnos. Descubre lo que estamos preparando.",
         )}
         {loading ? (
