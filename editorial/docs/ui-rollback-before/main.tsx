@@ -414,13 +414,13 @@ function App() {
           <aside>
             <h3>
               {route === "/mayoreo"
-                ? "Empecemos por conocernos."
-                : "Desde Guadalajara."}
+                ? "¡Gracias por contactarnos!"
+                : "¡Gracias por contactarnos!"}
             </h3>
             <p>
               {route === "/mayoreo"
-                ? "Todavía no publicamos precios de mayoreo. Tu solicitud nos ayuda a conocer tu tienda y conversar sobre los próximos pasos."
-                : "Para consultar un pedido, incluye su número en el mensaje."}
+                ? "Gracias por tu interés en Marlo Games y por ayudarnos a llevar nuestros juegos a más mesas mexicanas. ¡Nos pondremos en contacto contigo muy pronto!"
+                : "¿Tienes alguna duda o quieres ponerte en contacto con nosotros? Escríbenos y con gusto te responderemos. Si tu consulta es sobre un pedido, recuerda incluir su número."}
             </p>
             {c.contactEmail && (
               <a href={"mailto:" + c.contactEmail}>{c.contactEmail}</a>
