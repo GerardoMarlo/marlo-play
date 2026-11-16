@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-11-16T17:51:13.867Z",
+  "checks": [
+    {
+      "width": 390,
+      "route": "/",
+      "banner": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/juegos",
+      "banner": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/juegos/intercambio-navideno",
+      "banner": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "realCatalogCart": true
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "banner": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/juegos",
+      "banner": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/juegos/intercambio-navideno",
+      "banner": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "realCatalogCart": true
+    }
+  ],
+  "wwwRedirect": true,
+  "ordersSubmitted": false
+}

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import { OnlineArrow, PlayMarloPromoBanner, playMarloUrl } from "./PlayMarloPromoBanner";
 import { Snowfall } from "./Snowfall";
 import { catalogHeading, type Content } from "./content";
 import { money, type Product } from "./domain";
@@ -155,7 +156,9 @@ export function EditorialHome({
   loading,
   paymentsEnabled,
   onBuy,
+  onAdd,
 }: {
+  onAdd: (p: Product) => void;
   onBuy: (p: Product) => void;
   products: Product[];
   content: Content;
@@ -180,12 +183,10 @@ export function EditorialHome({
           }
         >
           {featured.slug === "intercambio-navideno" && <Snowfall />}
-          <div className="hero-sticker" aria-hidden="true">
-            La próxima
-            <br />
-            <strong>partida</strong>
-            <span>es aquí.</span>
-          </div>
+          <a className="hero-sticker online-sticker" href={playMarloUrl}>
+            <strong>Prueba nuestros juegos en línea</strong>
+            <span>Gratis <OnlineArrow /></span>
+          </a>
           <div className="launch-copy">
             <span className="eyebrow">
               <i className="status-dot" />
@@ -261,7 +262,10 @@ export function EditorialHome({
           {products
             .filter((p) => !p.fixture)
             .map((p, i) => (
-              <CatalogRow key={p.id} product={p} index={i} />
+              <Fragment key={p.id}>
+                <CatalogRow product={p} index={i} preorders={content.preordersEnabled} onAdd={onAdd} />
+                {i === 0 && <PlayMarloPromoBanner />}
+              </Fragment>
             ))}
         </div>
       </section>
@@ -306,10 +310,15 @@ export function EditorialHome({
 export function CatalogRow({
   product: p,
   index = 0,
+  preorders,
+  onAdd,
 }: {
   product: Product;
   index?: number;
+  preorders: boolean;
+  onAdd: (p: Product) => void;
 }) {
+  const lastAdd = useRef(0);
   return (
     <article className="catalog-row">
       <a
@@ -341,9 +350,17 @@ export function CatalogRow({
           <strong>
             {money(p.price)} <small>MXN</small>
           </strong>
-          <a className="text-link" href={"/juegos/" + p.slug}>
-            Conoce el juego ↗
-          </a>
+          <div className="catalog-actions">
+            {canBuy(p, preorders) && <button type="button" onClick={() => {
+              const now = Date.now();
+              if (now - lastAdd.current < 700) return;
+              lastAdd.current = now;
+              onAdd(p);
+            }}>Agregar al carrito</button>}
+            <a className="text-link" href={"/juegos/" + p.slug}>
+              Conoce el juego <OnlineArrow />
+            </a>
+          </div>
         </div>
       </div>
     </article>
@@ -609,6 +626,7 @@ export function ProductPage({
           </details>
         </div>
       </section>
+      <PlayMarloPromoBanner />
       {expanded && (
         <ImageDialog
           src={images[selected]}

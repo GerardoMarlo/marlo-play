@@ -215,3 +215,55 @@ body.storefront {
     margin: 8px 0;
   }
 }
+
+/* Online play promotion: shared by catalog and product details. */
+.storefront .play-marlo-promo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  margin: 36px 0 48px;
+  padding: clamp(24px, 4vw, 48px);
+  border: 2px solid var(--color-ink, #28251f);
+  border-radius: 24px;
+  background: var(--brand-blue, #bbd7e5);
+  color: #28251f;
+  box-shadow: 6px 6px 0 #28251f;
+}
+.storefront .play-marlo-promo h2 {
+  font: 800 clamp(30px, 3.5vw, 48px)/1.08 var(--serif);
+  letter-spacing: -1px;
+  margin: 16px 0;
+}
+.play-marlo-copy { min-width: 0; }
+.storefront .play-marlo-promo p { max-width: 54ch; margin: 0 0 24px; font-size: 16px; }
+.play-marlo-promo > img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.storefront .play-marlo-promo .button,
+.storefront .catalog-actions .text-link { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; }
+.play-marlo-promo svg, .catalog-actions svg { flex: 0 0 20px; }
+.storefront .catalog-end { flex-wrap: wrap; gap: 20px; }
+.catalog-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.storefront .catalog-actions button { min-height: 44px; }
+.storefront .online-sticker {
+  width: 172px; height: auto; min-height: 120px; padding: 16px;
+  border-radius: 20px; text-align: center; text-decoration: none; transform: rotate(5deg);
+}
+.storefront .online-sticker strong { font: 800 19px/1.15 var(--serif); }
+.storefront .online-sticker span { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.storefront .online-sticker:hover { transform: rotate(0deg); box-shadow: 5px 5px 0 #28251f; }
+.storefront .online-sticker:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #28251f; }
+.storefront .online-sticker:focus-visible,
+.play-marlo-promo a:focus-visible,
+.catalog-actions :focus-visible { outline: 3px solid #28251f; outline-offset: 5px; }
+@media (min-width: 1001px) {
+  .storefront .game-theme .game-about { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .storefront .game-theme .game-about p { max-width: 65ch; }
+}
+@media (max-width: 700px) {
+  .storefront .play-marlo-promo { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 24px 20px; border-radius: 20px; }
+  .play-marlo-promo > img { width: 160px; justify-self: center; }
+  .storefront .play-marlo-promo .button { width: 100%; text-align: left; }
+  .catalog-actions { width: 100%; align-items: stretch; flex-direction: column; gap: 12px; }
+  .storefront .online-sticker { width: 150px; min-height: 100px; bottom: 36px; padding: 12px; }
+  .storefront .online-sticker strong { font-size: 16px; }
+}

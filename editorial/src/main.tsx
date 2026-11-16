@@ -8,6 +8,7 @@ import { catalogHeading, defaultContent, localExplanation, type Content } from "
 import { money, type Product, type Cart } from "./domain";
 import { Admin } from "./Admin";
 import { EditorialHome, ProductPage, CatalogRow } from "./Showcase";
+import { PlayMarloPromoBanner } from "./PlayMarloPromoBanner";
 import { pageMetadata, jsonForHtml } from "./seo";
 import { oldProductPaths } from "./launch";
 import { StorefrontNavigation } from "./StorefrontNavigation";
@@ -281,6 +282,7 @@ function App() {
     page = (
       <EditorialHome
         onBuy={buyFeatured}
+        onAdd={add}
         products={data.products}
         content={c}
         loading={loading}
@@ -302,7 +304,10 @@ function App() {
             {data.products
               .filter((p) => !p.fixture)
               .map((p, i) => (
-                <CatalogRow key={p.id} product={p} index={i} />
+                <React.Fragment key={p.id}>
+                  <CatalogRow product={p} index={i} preorders={c.preordersEnabled} onAdd={add} />
+                  {i === 0 && <PlayMarloPromoBanner />}
+                </React.Fragment>
               ))}
             {data.mode === "local" && (
               <details className="local-fixtures">

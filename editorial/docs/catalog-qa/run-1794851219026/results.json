@@ -1,0 +1,80 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "route": "/",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 320,
+      "route": "/juegos",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 320,
+      "route": "/juegos/intercambio-navideno",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 390,
+      "route": "/juegos",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 390,
+      "route": "/juegos/intercambio-navideno",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 768,
+      "route": "/juegos",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 768,
+      "route": "/juegos/intercambio-navideno",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 1440,
+      "route": "/juegos",
+      "overflow": false,
+      "banner": true
+    },
+    {
+      "width": 1440,
+      "route": "/juegos/intercambio-navideno",
+      "overflow": false,
+      "banner": true
+    }
+  ],
+  "cart": "shared state, header, localStorage and feedback verified with mocked catalog",
+  "availability": "empty, unavailable, zero stock and preorder flag verified",
+  "mobileAbout": "identical computed metrics with and without desktop override",
+  "navigation": "sticky header and back to top verified"
+}
